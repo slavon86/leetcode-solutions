@@ -11,7 +11,7 @@ class BrowserHistory {
         if (this.currentStep + 1 < this.history.length) {
             this.history.splice(this.currentStep + 1);
         }
-        this.history.push(url); 
+        this.history.push(url);
         this.currentStep = this.currentStep + 1;
     }
 
@@ -25,7 +25,7 @@ class BrowserHistory {
     }
 
     forward(steps: number): string {
-        if (steps >=  (this.history.length - this.currentStep)) {
+        if (steps >= this.history.length - this.currentStep) {
             this.currentStep = this.history.length - 1;
         } else {
             this.currentStep = this.currentStep + steps;

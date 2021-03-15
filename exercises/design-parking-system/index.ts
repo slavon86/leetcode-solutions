@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class ParkingSystem {
-    quantitySpots: number[];  
+    quantitySpots: number[];
     freeSpots: number[];
-    
+
     constructor(big: number, medium: number, small: number) {
         this.quantitySpots = [];
         this.freeSpots = [];
@@ -16,7 +16,7 @@ class ParkingSystem {
             this.freeSpots[carType]--;
             return true;
         } else {
-            return false;            
+            return false;
         }
     }
 }
