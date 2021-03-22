@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function romanToInt(s: string): number {
+export function romanToInt(s: string): number {
     let sum = 0;
     for (let i = 0; i < s.length; i++) {
         switch (s[i]) {
