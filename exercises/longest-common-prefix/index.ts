@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function longestCommonPrefix(strs: string[]): string {
+export function longestCommonPrefix(strs: string[]): string {
     let result = "";
     if (!strs[0]) {
         return result;
