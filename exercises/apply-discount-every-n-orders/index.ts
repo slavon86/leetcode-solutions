@@ -1,23 +1,36 @@
 export class Cashier {
+    private n: number;
+    private discount: number;
+    private prices: number[];
+    private products: number[];
+    private count: number;
+
     constructor(
         n: number,
         discount: number,
-        prices: number[],
-        products: number[]
+        products: number[],
+        prices: number[]
     ) {
-        return;
+        this.n = n;
+        this.discount = discount;
+        this.products = products;
+        this.prices = prices;
+        this.count = 0;
     }
 
     getBill(product: number[], amount: number[]): number {
-        return 0;
+        let coast = 0;
+        this.count = this.count + 1;
+        for (let index = 0; index < product.length; index++) {
+            coast =
+                coast +
+                this.prices[this.products.indexOf(product[index])] *
+                    amount[index];
+        }
+        if (this.count % this.n === 0) {
+            coast = coast - (this.discount * coast) / 100;
+            this.count = 0;
+        }
+        return coast;
     }
 }
-
-const obj = new Cashier(
-    3,
-    50,
-    [1, 2, 3, 4, 5, 6, 7],
-    [100, 200, 300, 400, 300, 200, 100]
-);
-
-console.log(obj.getBill([1, 2], [1, 2]));
