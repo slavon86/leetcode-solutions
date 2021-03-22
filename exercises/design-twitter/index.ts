@@ -3,7 +3,7 @@ interface Tweet {
     tweetId: number;
 }
 
-class Twitter {
+export class Twitter {
     private tweets: Tweet[];
     followers: number[][];
     constructor() {
