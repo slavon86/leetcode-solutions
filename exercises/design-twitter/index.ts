@@ -5,7 +5,7 @@ interface Tweet {
 
 export class Twitter {
     private tweets: Tweet[];
-    followers: number[][];
+    private followers: number[][];
     constructor() {
         this.tweets = [];
         this.followers = [];

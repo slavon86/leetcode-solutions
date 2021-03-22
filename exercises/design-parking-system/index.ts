@@ -1,6 +1,6 @@
 export class ParkingSystem {
-    quantitySpots: number[];
-    freeSpots: number[];
+    private quantitySpots: number[];
+    private freeSpots: number[];
 
     constructor(big: number, medium: number, small: number) {
         this.quantitySpots = [];

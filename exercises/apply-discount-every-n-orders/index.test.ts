@@ -55,35 +55,35 @@ describe("Apply discount every n orders", () => {
                         expect(cashier.getBill([7, 3], [10, 10])).toBeCloseTo(
                             4000.0
                         );
-                        describe("When getBill([7, 3], [10, 10]) :", () => {
-                            beforeEach(() => {
-                                cashier.getBill([7, 3], [10, 10]);
-                            });
-                            test(
-                                "return 7350.0, Bill was 14700.0 but as " +
-                                    "the system counted three more customers, he will " +
-                                    "have a 50% discount and the bill becomes 7350.0",
-                                () => {
-                                    expect(
-                                        cashier.getBill(
-                                            [7, 5, 3, 1, 6, 4, 2],
-                                            [10, 10, 10, 9, 9, 9, 7]
-                                        )
-                                    ).toBeCloseTo(7350.0);
-                                }
-                            );
-                            describe("When getBill([7,5,3,1,6,4,2],[10,10,10,9,9,9,7]) :", () => {
-                                beforeEach(() => {
+                    });
+                    describe("When getBill([7, 3], [10, 10]) :", () => {
+                        beforeEach(() => {
+                            cashier.getBill([7, 3], [10, 10]);
+                        });
+                        test(
+                            "return 7350.0, Bill was 14700.0 but as " +
+                                "the system counted three more customers, he will " +
+                                "have a 50% discount and the bill becomes 7350.0",
+                            () => {
+                                expect(
                                     cashier.getBill(
                                         [7, 5, 3, 1, 6, 4, 2],
                                         [10, 10, 10, 9, 9, 9, 7]
-                                    );
-                                });
-                                test("returns 2500.0", () => {
-                                    expect(
-                                        cashier.getBill([2, 3, 5], [5, 3, 2])
-                                    ).toBeCloseTo(2500.0);
-                                });
+                                    )
+                                ).toBeCloseTo(7350.0);
+                            }
+                        );
+                        describe("When getBill([7,5,3,1,6,4,2],[10,10,10,9,9,9,7]) :", () => {
+                            beforeEach(() => {
+                                cashier.getBill(
+                                    [7, 5, 3, 1, 6, 4, 2],
+                                    [10, 10, 10, 9, 9, 9, 7]
+                                );
+                            });
+                            test("returns 2500.0", () => {
+                                expect(
+                                    cashier.getBill([2, 3, 5], [5, 3, 2])
+                                ).toBeCloseTo(2500.0);
                             });
                         });
                     });

@@ -1,5 +1,5 @@
 export class BrowserHistory {
-    history: string[];
+    private history: string[];
     currentStep: number;
     constructor(homepage: string) {
         this.history = [homepage];
