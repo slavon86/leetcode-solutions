@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-class BrowserHistory {
+export class BrowserHistory {
     history: string[];
     currentStep: number;
     constructor(homepage: string) {
