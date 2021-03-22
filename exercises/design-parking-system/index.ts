@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-class ParkingSystem {
+export class ParkingSystem {
     quantitySpots: number[];
     freeSpots: number[];
 
