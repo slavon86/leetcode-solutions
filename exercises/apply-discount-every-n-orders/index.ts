@@ -1,10 +1,8 @@
 export class Cashier {
     private n: number;
     private discount: number;
-    private prices: number[];
-    private products: number[];
     private count: number;
-
+    private priceTable: Map<number, number>;
     constructor(
         n: number,
         discount: number,
@@ -13,24 +11,22 @@ export class Cashier {
     ) {
         this.n = n;
         this.discount = discount;
-        this.products = products;
-        this.prices = prices;
         this.count = 0;
+        this.priceTable = new Map();
+        for (let index = 0; index < products.length; index++) {
+            this.priceTable.set(products[index], prices[index]);
+        }
     }
 
     getBill(product: number[], amount: number[]): number {
-        let coast = 0;
-        this.count = this.count + 1;
+        let cost = 0;
         for (let index = 0; index < product.length; index++) {
-            coast =
-                coast +
-                this.prices[this.products.indexOf(product[index])] *
-                    amount[index];
+            // @ts-ignore
+            cost += this.priceTable.get(product[index]) * amount[index];
         }
-        if (this.count % this.n === 0) {
-            coast = coast - (this.discount * coast) / 100;
-            this.count = 0;
+        if (++this.count % this.n === 0) {
+            cost -= (this.discount * cost) / 100;
         }
-        return coast;
+        return cost;
     }
 }
