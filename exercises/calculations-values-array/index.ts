@@ -48,7 +48,6 @@ function runIt() {
         },
         [0, 0]
     );
-
     if (counts[0] > counts[1]) {
         console.log("Больше чётных значений");
     }
@@ -62,19 +61,22 @@ function runIt() {
     }
     //  3
     console.log(
+        "Average value: ",
         goodValues.reduce((acc, value) => acc + value) / goodValues.length
     );
-
     //  4
-    goodValues.sort();
-    let average = 0;
-    if (goodValues.length % 2 === 0) {
+    let sortedGoodValues = [];
+    goodValues.forEach((value) => sortedGoodValues.push(value));
+    sortedGoodValues.sort((a, b) => a - b);
+    console.log("sortedGoodValues: ", sortedGoodValues);
+    let average;
+    if (sortedGoodValues.length % 2 === 0) {
         average =
-            (goodValues[goodValues.length / 2 - 1] +
-                goodValues[goodValues.length / 2]) /
+            (sortedGoodValues[sortedGoodValues.length / 2 - 1] +
+                sortedGoodValues[sortedGoodValues.length / 2]) /
             2;
     } else {
-        average = goodValues[(goodValues.length - 1) / 2];
+        average = sortedGoodValues[(sortedGoodValues.length - 1) / 2];
     }
     console.log("Средний элемент в отсортированом массиве равен ", average);
 }
