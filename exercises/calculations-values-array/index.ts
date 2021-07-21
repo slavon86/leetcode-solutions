@@ -37,9 +37,9 @@ function runIt() {
         (value) =>
             value > loverBoundary &&
             value < higherBoundary &&
-            badValues.includes(value) === false
+            !badValues.includes(value)
     );
-    console.log("goodValues = ", goodValues);
+    console.log("Good values:  ", goodValues);
     //  2
     const counts = goodValues.reduce(
         (acc, value) => {
@@ -49,36 +49,34 @@ function runIt() {
         [0, 0]
     );
     if (counts[0] > counts[1]) {
-        console.log("Больше чётных значений");
-    }
-    if (counts[0] < counts[1]) {
-        console.log("Больше нечётных значений");
-    }
-    if (counts[0] === counts[1]) {
+        console.log("There are more even values.");
+    } else if (counts[0] < counts[1]) {
+        console.log("There are more odd values.");
+    } else {
         console.log(
-            "Количество чётных значений равно количеству нечётных значений"
+            "The number of even values is equal to the number of odd values."
         );
     }
     //  3
     console.log(
-        "Average value: ",
+        "Average value is: ",
         goodValues.reduce((acc, value) => acc + value) / goodValues.length
     );
     //  4
-    let sortedGoodValues = [];
-    goodValues.forEach((value) => sortedGoodValues.push(value));
-    sortedGoodValues.sort((a, b) => a - b);
-    console.log("sortedGoodValues: ", sortedGoodValues);
+    const sortedGoodValues = goodValues.slice().sort((a, b) => a - b);
+    console.log("Sorted good values are: ", sortedGoodValues);
     let average;
-    if (sortedGoodValues.length % 2 === 0) {
+    const len = sortedGoodValues.length;
+    if (len % 2 === 0) {
         average =
-            (sortedGoodValues[sortedGoodValues.length / 2 - 1] +
-                sortedGoodValues[sortedGoodValues.length / 2]) /
-            2;
+            (sortedGoodValues[len / 2 - 1] + sortedGoodValues[len / 2]) / 2;
     } else {
-        average = sortedGoodValues[(sortedGoodValues.length - 1) / 2];
+        average = sortedGoodValues[(len - 1) / 2];
     }
-    console.log("Средний элемент в отсортированом массиве равен ", average);
+    console.log(
+        "The middle element in the sorted array of good values is :",
+        average
+    );
 }
 
 runIt();
